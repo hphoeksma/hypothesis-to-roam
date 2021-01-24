@@ -34,7 +34,7 @@ export default function Template() {
             }}>
 
                 <textarea name="template" cols="30" rows="10" defaultValue={template ? template : defaultTemplate}></textarea>
-                <button type={'submit'}>Save</button>
+                <button type={'submit'} className="button">Save</button>
             </form>
         </div>
     )
