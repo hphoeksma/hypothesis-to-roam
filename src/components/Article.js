@@ -18,7 +18,7 @@ export default function Article(props) {
         <article>
             {data.title}
             <span>
-                <button onClick={handleProcess}><IoCopyOutline/> <span>Process notes</span></button>
+                <button onClick={handleProcess} className={'button'}><IoCopyOutline/> <span>Process notes</span></button>
             </span>
         </article>
     )

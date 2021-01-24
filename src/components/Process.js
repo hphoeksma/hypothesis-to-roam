@@ -89,7 +89,7 @@ export default function Process(props) {
             console.log(annotation.id)
             api.deleteAnnotation(annotation.id).then(result => {
                 if (result === true) {
-                    toast.warn('👍🏻 Annotation removed')
+                    toast.success('👍🏻 Annotation removed')
                 }
             })
         })

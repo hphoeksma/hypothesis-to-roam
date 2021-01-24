@@ -12,7 +12,7 @@ import roam from './astrolabe-white.png'
 import React from 'react'
 import {IoArrowRedoOutline} from 'react-icons/all'
 import * as Sentry from "@sentry/react"
-import { Integrations } from "@sentry/tracing"
+import {Integrations} from "@sentry/tracing"
 
 Sentry.init({
     dsn: "https://571a119eb650499988f8451ebd527be5@o108882.ingest.sentry.io/5605602",
@@ -45,7 +45,7 @@ function App() {
                     />
                 </main>
                 <aside>
-                    <div>
+                    <div className={'header'}>
                         <a href="https://web.hypothes.is/start/" title="hypothes.is" target="_blank" rel="noreferrer">
                             <SiHypothesis />
                         </a>
@@ -54,7 +54,7 @@ function App() {
                             <img src={roam} alt={'Roam Research'} />
                         </a>
                     </div>
-                    <Menu />
+                        <Menu />
                 </aside>
             </div>
         </Router>
