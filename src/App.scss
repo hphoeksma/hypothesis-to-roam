@@ -1,0 +1,45 @@
+.app {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(calc(210px + 2rem), auto) 1fr;
+  grid-auto-flow: dense;
+  color: white;
+
+  main {
+    padding: 4rem 3rem;
+    grid-column: 2;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  aside {
+    position: fixed;
+    width: calc(210px + 2rem);
+    height: 100vh;
+    background: var(--alternate-background-color);
+    grid-column: 1;
+    grid-row: 1 / -1;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1rem;
+      background: #3498db;
+      > * {
+        color: whitesmoke;
+        height: 2rem;
+        width: auto;
+        &:nth-child(2) {
+          opacity: .3;
+        }
+        > * {
+          height: 2rem;
+          width: auto;
+        }
+      }
+    }
+  }
+}

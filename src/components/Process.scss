@@ -1,0 +1,68 @@
+.process {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+
+  .display-linebreak {
+    white-space: pre;
+    text-align: left;
+    min-height: 10rem;
+  }
+
+  textarea {
+    background: transparent;
+    width: 100%;
+    height: auto;
+    outline: none;
+    color: whitesmoke;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    resize: vertical;
+    border: 1px solid rgba(255, 255, 255, .4);
+    border-radius: .5rem;
+    padding: 1rem;
+  }
+
+  .textarea-wrapper {
+    display: grid;
+    grid-template-columns: 90% 1fr;
+    gap: 2rem;
+    align-items: start;
+
+    button {
+      justify-self: end;
+      padding: .5rem;
+      margin-left: 1rem;
+
+      :first-child {
+        margin: 0;
+      }
+    }
+  }
+
+  h2:not(:first-child) {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    :first-child {
+      margin-right: 1rem;
+    }
+  }
+
+  .back {
+    margin-top: auto;
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    svg {
+      transform: scaleX(-1);
+      font-size: 2vmin;
+      margin-right: .5rem;
+    }
+  }
+}

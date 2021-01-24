@@ -1,0 +1,16 @@
+nav {
+  padding: 2rem 1rem;
+  > * {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    :first-child {
+      margin-right: .5rem;
+    }
+  }
+
+  :last-child {
+    align-self: end;
+    margin-bottom: 0;
+  }
+}
