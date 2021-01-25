@@ -2,7 +2,6 @@ import React,{useState} from 'react'
 import './Article.scss'
 import {Redirect} from 'react-router-dom'
 import {IoCopyOutline} from 'react-icons/all'
-import {SiHypothesis} from 'react-icons/si'
 import LinkToHypothesis from '../decorators/LinkToHypothesis'
 
 export default function Article(props) {
