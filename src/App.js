@@ -61,16 +61,16 @@ function App() {
     );
 }
 
-export const defaultTemplate = 'Keywords:: #[[Article]] #toProcess\n' +
-    'Author:: \n' +
-    'Source:: {uri}\n' +
-    'Publication date:: \n' +
-    'Added:: {today}\n' +
-    '----\n' +
-    '## Notes\n' +
-    '{notes}\n' +
-    '## Highlights\n' +
-    '{highlights}\n' +
-    '----\n'
+export const defaultTemplate = `Tags:: #[[Article]] #toProcess {allTags}
+Author:: 
+Source:: {uri}
+Publication date:: 
+Added:: {today}
+----
+## Notes
+{notes}
+## Highlights
+{highlights}
+----`
 
 export default App

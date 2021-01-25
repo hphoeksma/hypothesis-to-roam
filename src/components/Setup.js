@@ -13,10 +13,8 @@ export default function Setup() {
             <Fragment>
                 <h1>Settings</h1>
                 <p>Your token and user are set.</p>
-                <p><Link to={'/'} className={'button button--inline'}>Start using the
-                                                                      app</Link> or <Link to={'/template'} className={'button button--inline'}>Change
-                                                                                                                                               the
-                                                                                                                                               template</Link>
+                <p><Link to={'/'} className={'button button--inline'}>
+                    Start using the app</Link> or <Link to={'/template'} className={'button button--inline'}>Change the template</Link>
                 </p>
             </Fragment>
         )

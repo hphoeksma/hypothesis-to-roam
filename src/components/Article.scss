@@ -4,8 +4,11 @@
 
   article {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto;
     gap: 1rem;
     align-items: center;
+    a {
+      align-self: flex-end;
+    }
   }
 }

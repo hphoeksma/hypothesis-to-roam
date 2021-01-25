@@ -36,11 +36,25 @@
 
     button {
       justify-self: end;
-      padding: .5rem;
       margin-left: 1rem;
-
       :first-child {
         margin: 0;
+      }
+    }
+  }
+
+  h2:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a {
+      font-size: 1rem;
+      font-weight: normal;
+      margin-right: .25rem;
+      display: flex;
+      align-items: center;
+      :last-child {
+        margin-left: .5rem;
       }
     }
   }

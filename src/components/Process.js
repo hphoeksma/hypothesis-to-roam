@@ -5,11 +5,13 @@ import moment from 'moment'
 import {toast} from 'react-toastify'
 import {Link} from 'react-router-dom'
 import {
+    FaTrashAlt,
     HiOutlineClipboardCopy,
     ImSpinner8,
     IoArrowRedoOutline,
 } from 'react-icons/all'
 import {defaultTemplate} from '../App'
+import LinkToHypothesis from '../decorators/LinkToHypothesis'
 
 export default function Process(props) {
     const uri = props.location.search.split('=')[1]
@@ -17,6 +19,7 @@ export default function Process(props) {
     const template = localStorage.getItem('template') ? localStorage.getItem('template') : defaultTemplate
     const textarea = useRef(null)
     const title = useRef(null)
+    const tagJoin = localStorage.getItem('tagjoin') ? localStorage.getItem('tagjoin') : ' '
 
     if (!annotations) {
         api.getAnnotationsByUri(uri)
@@ -35,12 +38,14 @@ export default function Process(props) {
 
     const getAnnotations = (type) => {
         const highlights = []
+        const allTags = []
 
         if (annotations) {
             annotations.forEach(annotation => {
                 annotation.target.forEach(target => {
                     const highlight = {
-                        text: annotation.text
+                        text: annotation.text,
+                        tags: annotation.tags && annotation.tags.map(tag => `#[[${tag}]]`).join(tagJoin)
                     }
                     if (target.selector) {
                         target.selector.forEach(selector => {
@@ -50,19 +55,23 @@ export default function Process(props) {
                         })
                     }
                     highlights.push(highlight)
+                    allTags.push(highlight.tags)
                 })
+
             })
         }
 
         switch (type) {
+            case 'allTags':
+                return allTags.join(tagJoin)
             case 'notes':
                 return highlights.filter(highlight => !highlight.hasOwnProperty('highlight'))
-                    .map(highlight => `\t${highlight.text}`)
+                    .map(highlight => `\t${highlight.text} ${highlight.tags}`)
                     .join('\n')
             default:
                 return highlights.filter(highlight => highlight.hasOwnProperty('highlight'))
                     .map(highlight => {
-                        let item = `\t${highlight.highlight}`
+                        let item = `\t${highlight.highlight} ${highlight.tags}`
                         if (highlight.text !== '') {
                             item += `\n\t\t${highlight.text}`
                         }
@@ -99,7 +108,7 @@ export default function Process(props) {
         <Fragment>
             {!annotations ? <p className={'has-loader'}><ImSpinner8 className={'loading'} /> Preparing annotations, please hold... (it won't take long 😎)</p> :
                 <div className={'process'}>
-                    <h2>Copy your content</h2>
+                    <h2><span>Copy your content</span><LinkToHypothesis uri={uri} prefix={true} /></h2>
                     <h3>Title</h3>
                     <div className="textarea-wrapper">
                         <textarea ref={title} defaultValue={annotations[0].document.title[0]}></textarea>
@@ -117,12 +126,13 @@ export default function Process(props) {
                                     .replace('{title}', annotations[0].document.title[0])
                                     .replace('{notes}', getAnnotations('notes'))
                                     .replace('{highlights}', getAnnotations('highlights'))
+                                    .replace('{allTags}', getAnnotations('allTags'))
                             }></textarea>
                         <button onClick={copyTemplate} title={'Copy the contents'} className={'button button--plain'}><HiOutlineClipboardCopy/></button>
                     </div>
                     <h2>
                         <span>Finished? Clean up hypothes.is if you like...</span>
-                        <button onClick={cleanupHypothesis} className={'button button--warning button--inline'}>Remove annotations from hypothes.is</button>
+                        <button onClick={cleanupHypothesis} className={'button button--warning button--inline'}><FaTrashAlt /> Remove annotations from hypothes.is</button>
                     </h2>
                     <Link to={'/'} className={'back'} title={'Go back'}><IoArrowRedoOutline /> Go back</Link>
                 </div>
