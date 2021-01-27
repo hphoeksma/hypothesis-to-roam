@@ -1,6 +1,5 @@
 import './App.scss'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
-import Template from './components/Template'
 import Hypothesis from './components/Hypothesis'
 import Setup from './components/Setup'
 import Menu from './decorators/Menu'
@@ -13,6 +12,7 @@ import React from 'react'
 import {IoArrowRedoOutline} from 'react-icons/all'
 import * as Sentry from "@sentry/react"
 import {Integrations} from "@sentry/tracing"
+import About from './components/About'
 
 Sentry.init({
     dsn: "https://571a119eb650499988f8451ebd527be5@o108882.ingest.sentry.io/5605602",
@@ -30,7 +30,8 @@ function App() {
                 <main>
                     <Route path="/" exact component={Hypothesis} />
                     <Route path="/setup" component={Setup} />
-                    <Route path="/template" component={Template} />
+                    <Route path="/setup" component={Setup} />
+                    <Route path="/about" component={About} />
                     <Route path="/process" component={Process} />
                     <ToastContainer
                         position="bottom-right"
