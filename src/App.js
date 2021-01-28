@@ -13,6 +13,7 @@ import {IoArrowRedoOutline} from 'react-icons/all'
 import * as Sentry from "@sentry/react"
 import {Integrations} from "@sentry/tracing"
 import About from './components/About'
+import Template from './components/Template'
 
 Sentry.init({
     dsn: "https://571a119eb650499988f8451ebd527be5@o108882.ingest.sentry.io/5605602",
@@ -30,7 +31,7 @@ function App() {
                 <main>
                     <Route path="/" exact component={Hypothesis} />
                     <Route path="/setup" component={Setup} />
-                    <Route path="/setup" component={Setup} />
+                    <Route path="/template" component={Template} />
                     <Route path="/about" component={About} />
                     <Route path="/process" component={Process} />
                     <ToastContainer

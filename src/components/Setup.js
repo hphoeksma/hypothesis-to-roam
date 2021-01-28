@@ -36,7 +36,6 @@ export default function Setup() {
         })
     }
     return (
-
         <Fragment>
             <h1>Setup</h1>
             <p>All settings are stored in the localstorage of your browser.</p>
