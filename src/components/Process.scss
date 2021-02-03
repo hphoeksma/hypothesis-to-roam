@@ -68,6 +68,21 @@
     }
   }
 
+  .experimental {
+    background: #f1c40f;
+    color: var(--gray);
+    font-size: small;
+    font-weight: normal;
+    text-transform: uppercase;
+    padding: .125rem .5rem;
+    border-radius: .25rem;
+  }
+  .note {
+    font-size: small;
+    color: #f1c40f;
+    margin-top: -1rem;
+  }
+
   .back {
     margin-top: auto;
     align-self: flex-end;
