@@ -6,6 +6,9 @@ import {toast} from 'react-toastify'
 export default function Setup() {
     const [apiToken, setApiToken] = useState(localStorage.getItem('token'))
     const [user, setUser] = useState(localStorage.getItem('user'))
+    const refreshPage = () => {
+        window.location.assign('/')
+    }
     if (apiToken && user) {
         localStorage.setItem('token', apiToken)
         localStorage.setItem('user', user)
@@ -13,8 +16,8 @@ export default function Setup() {
             <Fragment>
                 <h1>Settings</h1>
                 <p>Your token and user are set.</p>
-                <p><Link to={'/'} className={'button button--inline'}>
-                    Start using the app</Link> or <Link to={'/template'} className={'button button--inline'}>Change the template</Link>
+                <p><button onClick={refreshPage} className={'button button--inline'}>
+                    Start using the app</button> or <Link to={'/template'} className={'button button--inline'}>Change the template</Link>
                 </p>
             </Fragment>
         )

@@ -11,9 +11,6 @@ export default function Hypothesis() {
             Looks like you haven't setup the application yet. It's a breeze to get hooked up, promise! 🤞🏻<br/>
             <br/>
             <Link to={'/setup'} className={'button button--inline'}>Go to setup</Link>
-            <br/>
-            <br/>
-            After finishing the setup you might need to refresh your browser before the articles are showing up.
         </p>
     }
 
