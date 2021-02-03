@@ -1,5 +1,5 @@
 import React, {Fragment, useState} from "react"
-import {Redirect} from "react-router-dom"
+import {Link} from "react-router-dom"
 import Articles from './Articles'
 
 export default function Hypothesis() {
@@ -7,7 +7,14 @@ export default function Hypothesis() {
     const apiToken = useState(localStorage.getItem('token'))[0]
 
     if (!user || !apiToken) {
-        return <Redirect to={'/setup'}/>
+        return <p className={'text-center'}>
+            Looks like you haven't setup the application yet. It's a breeze to get hooked up, promise! 🤞🏻<br/>
+            <br/>
+            <Link to={'/setup'} className={'button button--inline'}>Go to setup</Link>
+            <br/>
+            <br/>
+            After finishing the setup you might need to refresh your browser before the articles are showing up.
+        </p>
     }
 
     return (

@@ -1,8 +1,8 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,14 +10,14 @@ body {
 :root {
   --primary-color: #3498db;
   --success-color: #4bac3f;
-  --alternate-background-color: rgba(255,255,255,.01);
+  --alternate-background-color: rgba(255, 255, 255, .01);
   --gray: #444957;
   --gray-light: #71798f;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }
 
 a {
@@ -47,26 +47,32 @@ hr {
   cursor: pointer;
   outline: none;
   white-space: nowrap;
+
   :first-child {
     margin-right: .5rem;
   }
+
   &:hover {
     background: var(--primary-color);
   }
+
   &--inline {
     display: inline-flex;
     padding: .25rem 1rem;
     font-size: .8rem;
   }
+
   &--plain {
     border: none;
     font-size: 2.5vmin;
     padding: 0;
+
     &:hover {
       color: var(--primary-color);
       background: none;
     }
   }
+
   &--warning {
     &:hover {
       background: tomato;
@@ -80,10 +86,15 @@ hr {
   left: 1rem;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .loading {
   animation: loading 1s infinite;
   margin-right: 1rem;
 }
+
 .has-loader {
   display: flex;
   align-items: center;
