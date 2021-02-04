@@ -99,7 +99,7 @@ export default function Process(props) {
 
     const fetchArticle = () => {
         const turndownService = new TurndownService()
-        fetch(uri).then(response => response.text())
+        fetch('https://cors-anywhere.herokuapp.com/' + uri).then(response => response.text())
             .then(data => {
                 // Convert the HTML string into a document object
                 const parser = new DOMParser();
@@ -126,7 +126,9 @@ export default function Process(props) {
     }
 
     // Fetch the article contents
-    fetchArticle();
+    if (article === null) {
+        fetchArticle();
+    }
 
     return (
         <Fragment>
