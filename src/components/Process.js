@@ -99,7 +99,7 @@ export default function Process(props) {
 
     const fetchArticle = () => {
         const turndownService = new TurndownService()
-        fetch('https://cors-anywhere.herokuapp.com/' + uri).then(response => response.text())
+        fetch('https://ua-cp.herokuapp.com/' + uri).then(response => response.text())
             .then(data => {
                 // Convert the HTML string into a document object
                 const parser = new DOMParser();
@@ -150,12 +150,12 @@ export default function Process(props) {
                             ref={textarea}
                             defaultValue={
                                 template
-                                    .replace('{uri}', uri)
-                                    .replace('{today}', moment(new Date()).format("MMMM Do, YYYY"))
-                                    .replace('{title}', annotations[0].document.title[0])
-                                    .replace('{notes}', getAnnotations('notes'))
-                                    .replace('{highlights}', getAnnotations('highlights'))
-                                    .replace('{allTags}', getAnnotations('allTags'))
+                                    .replace(/{uri}/gi, uri)
+                                    .replace(/{today}/gi, moment(new Date()).format("MMMM Do, YYYY"))
+                                    .replace(/{title}/gi, annotations[0].document.title[0])
+                                    .replace(/{notes}/gi, getAnnotations('notes'))
+                                    .replace(/{highlights}/gi, getAnnotations('highlights'))
+                                    .replace(/{allTags}/gi, getAnnotations('allTags'))
                             }></textarea>
                         <button onClick={copyTemplate} title={'Copy the contents'} className={'button button--plain'}>
                             <HiOutlineClipboardCopy /></button>
