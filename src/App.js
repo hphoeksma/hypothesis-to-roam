@@ -14,6 +14,8 @@ import * as Sentry from "@sentry/react"
 import {Integrations} from "@sentry/tracing"
 import About from './components/About'
 import Template from './components/Template'
+import Feedback from 'feeder-react-feedback'
+import 'feeder-react-feedback/dist/feeder-react-feedback.css'
 
 Sentry.init({
     dsn: "https://571a119eb650499988f8451ebd527be5@o108882.ingest.sentry.io/5605602",
@@ -34,6 +36,11 @@ function App() {
                     <Route path="/template" component={Template} />
                     <Route path="/about" component={About} />
                     <Route path="/process" component={Process} />
+                    <Feedback
+                        hoverBorderColor="#6e789826"
+                        email={true}
+                        emailRequired={true}
+                        projectId="606da0f9359ba4000434477b" />
                     <ToastContainer
                         position="bottom-right"
                         autoClose={5000}
