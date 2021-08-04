@@ -139,7 +139,7 @@ export default function Process(props) {
                     <h2><span>Copy your content</span><LinkToHypothesis uri={uri} prefix={true} /></h2>
                     <h3>Title</h3>
                     <div className="textarea-wrapper">
-                        <textarea ref={title} defaultValue={annotations[0].document.title[0]}></textarea>
+                        <textarea ref={title} defaultValue={(annotations[0].document.title !== undefined && annotations[0].document.title.length !== 0) ? annotations[0].document.title[0] : 'No title'}></textarea>
                         <button onClick={copyTitle} title={'Copy the title'} className={'button button--plain'}>
                             <HiOutlineClipboardCopy /></button>
                     </div>
