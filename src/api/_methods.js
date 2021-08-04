@@ -21,7 +21,7 @@ export const getUniqueUrls = async () => {
         item['uri'],
         {
             uri: item.uri,
-            title: item.document.title[0],
+            title: (item.document.title !== undefined && item.document.title.length !== 0) ? item.document.title[0] : 'No title',
         }
     ])).values()]
 }
