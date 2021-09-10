@@ -27,7 +27,7 @@ export default function Setup() {
                 <h3>🚀 3 steps and you are rolling!</h3>
                 <ol>
                     <li>Add your apitoken from hypothes.is</li>
-                    <li>Add your username</li>
+                    <li>Add your username (without @hypothes.is)</li>
                     <li>Create a template matching your desired output to copy into Roam (optional)</li>
                 </ol>
             </div>
@@ -48,7 +48,7 @@ export default function Setup() {
                 setUser(e.target.user.value)
             }}>
                 <input type="text" name={'token'} placeholder={'Paste your api token'} required={'required'} defaultValue={apiToken} />
-                <input type="text" name={'user'} placeholder={'Fill in your hypothes.is username'} required={'required'} />
+                <input type="text" name={'user'} placeholder={'Fill in your hypothes.is username (without @hypothes.is)'} required={'required'} />
                 <button type={'submit'} className="button">Finish Setup</button>
             </form>
         </Fragment>
